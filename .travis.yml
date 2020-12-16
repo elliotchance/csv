@@ -1,0 +1,6 @@
+language: bash
+
+install:
+  - curl -L https://github.com/elliotchance/ok/releases/latest/download/ok-linux.zip --output /tmp/ok.zip && unzip -o /tmp/ok.zip -d /tmp/ && cp /tmp/bin/ok $HOME/bin
+
+script: ok test

@@ -1,0 +1,21 @@
+import "os"
+import "strings"
+
+// Read fetches the next CSV line from the file. If there is no more data to be
+// read the returned array will have zero elements.
+func Read(f os.File) []string {
+    line = f.ReadLine()
+    if line == "" {
+        return []string []
+    }
+    
+    values = strings.Split(strings.TrimSuffix(line, "\n"), ",")
+
+    return values
+}
+
+// Write will append a new record to the file. The fields must contain at least
+// one element.
+func Write(f os.File, fields []string) {
+    f.WriteString(strings.Join(fields, ",") + "\n")
+}

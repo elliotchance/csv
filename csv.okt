@@ -1,0 +1,16 @@
+import "os"
+
+test "Reading and writing" {
+    path = os.TempPath()
+
+    f = os.Open(path)
+    Write(f, ["a", "b", "c"])
+    Write(f, ["d", "e"])
+    f.Close()
+
+    f = os.Open(path)
+    assert(Read(f) == ["a", "b", "c"])
+    assert(Read(f) == ["d", "e"])
+    assert(Read(f) == []string [])
+    f.Close()
+}
